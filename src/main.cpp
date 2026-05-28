@@ -71,17 +71,17 @@ void setup() {
 }
 
 void loop() {
-  // The AS5600 has a 12-bit resolution, meaning it reads from 0 to 4095
+    // 12-bit resolution mapping to a range from 0 to 4095
     uint16_t rawAngle1 = encoder1.readAngle();
     uint16_t rawAngle2 = encoder2.readAngle();
 
-    // Convert the raw 12-bit integer into a 360-degree floating point value
+    // Raw 12-bit integer into a 360-degree floating point value conversion
     float degAngle1 = rawAngle1 * (360.0 / 4096.0);
     float degAngle2 = rawAngle2 * (360.0 / 4096.0);
 
-    // Print the results side-by-side
+    // Print the results in the terminal
     Serial.print("Joint 1: ");
-    Serial.print(degAngle1, 2); // Print with 2 decimal places
+    Serial.print(degAngle1, 2);
     Serial.print("° \t|\t Joint 2: ");
     Serial.print(degAngle2, 2);
     Serial.println("°");
